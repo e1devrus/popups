@@ -58,7 +58,7 @@ const createPopup = ({
   document.body.appendChild(wrapper);
 };
 
-export const confirm = async () => new Promise((resolve) => {
+export const confirm = async (text) => new Promise((resolve) => {
   const confirmBtn = document.createElement('button');
   confirmBtn.innerText = 'Подтвердить';
   confirmBtn.addEventListener('click', (event) => {
@@ -76,12 +76,12 @@ export const confirm = async () => new Promise((resolve) => {
   });
 
   createPopup({
-    text: `Окно подтверждения №${Math.floor(Math.random() * 1000000)}`,
+    text,
     buttons: [confirmBtn, dismissBtn],
   });
 });
 
-export const notify = async () => new Promise((resolve) => {
+export const notify = async (text) => new Promise((resolve) => {
   const okBtn = document.createElement('button');
   okBtn.innerText = 'Ок';
   okBtn.addEventListener('click', (event) => {
@@ -91,7 +91,7 @@ export const notify = async () => new Promise((resolve) => {
   });
 
   createPopup({
-    text: `Окно уведомления №${Math.floor(Math.random() * 1000000)}`,
+    text,
     buttons: [okBtn],
   });
 });
